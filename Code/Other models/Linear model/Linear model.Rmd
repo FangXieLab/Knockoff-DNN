@@ -1,0 +1,64 @@
+---
+title: "Linear model"
+author: "shiyiqing"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r}
+# Load required libraries
+library(tidyverse)
+library(knockoff)
+
+# Read data
+X <- read.csv("data_feature.csv")
+Y <- read.csv("data_Y.csv")
+
+# Combine predictor variables and response variable
+data <- cbind(X, Y)
+
+# Make sure x and y have the same number of rows
+x <- data[1:500, -ncol(data)] # Assuming you want first 10 rows and all but the last column
+y <- data[1:500, ncol(data)]  # Assuming Y is the last column
+
+# Run knockoffs algorithm
+result <- knockoff.filter(x, 
+                          y, 
+                          fdr = 0.01,
+                          statistic = stat.lasso_lambdasmax,
+                          offset = 0)
+
+# Print selected features
+print(result$selected)
+```
+
+```{r}
+# Load required libraries
+library(tidyverse)
+library(knockoff)
+
+# Read data
+X <- read.csv("cancerdata_feature.csv")
+Y <- read.csv("cancerdata_Y.csv")
+
+# Combine predictor variables and response variable
+data <- cbind(X, Y)
+
+# Make sure x and y have the same number of rows
+x <- data[1:569, -ncol(data)] # Assuming you want first 10 rows and all but the last column
+y <- data[1:569, ncol(data)]  # Assuming Y is the last column
+
+# Run knockoffs algorithm
+result <- knockoff.filter(x, 
+                          y, 
+                          fdr = 0.01,
+                          statistic = stat.lasso_lambdasmax,
+                          offset = 0)
+
+# Print selected features
+print(result$selected)
+
+# Run and summarize an OLS regression model
+fit <- lm(Y ~ ., data)  # Adjust based on what you actually need
+summary(fit)
+```
