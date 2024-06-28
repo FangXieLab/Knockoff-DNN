@@ -42,7 +42,7 @@ Additionally, based on the regularization parameters of each weight obtained dur
 ``Variations Distribution.ipynb``: visualize the selected variations to find the explanation of the result.
 
 ### For 'Other models' file:
-Here we use ``deepPINK``, ``deepLINK``, ``Linear model-knockoff``, ``Deep feature selection``, ``Proximal gradient`` to fiter varibles, use the selected results to compare with the results filtered by our algorithms.
+Here we use ``deepPINK``, ``deepLINK``, ``Linear model-knockoff``, ``Deep feature selection``,·``deepLasso`,``Proximal gradient`` to fiter varibles, use the selected results to compare with the results filtered by our algorithms.
 
 The data we use in the application.[link][http://dx.doi.org/10.24432/C5DW2B]
 
