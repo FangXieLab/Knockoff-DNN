@@ -27,6 +27,7 @@ Additionally, based on the regularization parameters of each weight obtained dur
 - `DeepLINK`
 - `Linear model-knockoff.Rmd`
 - `Deep feature selection`
+- `DeepLasso`
 - `Proximal gradient`
 
 ### For 'Simulation' file:
